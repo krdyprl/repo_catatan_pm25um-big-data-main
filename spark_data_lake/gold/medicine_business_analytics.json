@@ -1,0 +1,135 @@
+{
+  "category_stats": [
+    {
+      "category": "Analgesic",
+      "count": 188,
+      "avg_price": 49.690319148936176
+    },
+    {
+      "category": "Antibiotic",
+      "count": 203,
+      "avg_price": 51.77876847290641
+    },
+    {
+      "category": "Antiviral",
+      "count": 206,
+      "avg_price": 52.43893203883495
+    },
+    {
+      "category": "Supplement",
+      "count": 197,
+      "avg_price": 51.82842639593909
+    },
+    {
+      "category": "Vitamin",
+      "count": 206,
+      "avg_price": 49.57689320388349
+    }
+  ],
+  "top_medicines": [
+    {
+      "name": "Medicine_840",
+      "category": "Vitamin",
+      "total_usage": 44
+    },
+    {
+      "name": "Medicine_357",
+      "category": "Analgesic",
+      "total_usage": 44
+    },
+    {
+      "name": "Medicine_326",
+      "category": "Antibiotic",
+      "total_usage": 43
+    },
+    {
+      "name": "Medicine_237",
+      "category": "Antibiotic",
+      "total_usage": 42
+    },
+    {
+      "name": "Medicine_163",
+      "category": "Analgesic",
+      "total_usage": 42
+    },
+    {
+      "name": "Medicine_311",
+      "category": "Antibiotic",
+      "total_usage": 42
+    },
+    {
+      "name": "Medicine_415",
+      "category": "Antibiotic",
+      "total_usage": 40
+    },
+    {
+      "name": "Medicine_590",
+      "category": "Supplement",
+      "total_usage": 39
+    },
+    {
+      "name": "Medicine_565",
+      "category": "Antiviral",
+      "total_usage": 38
+    },
+    {
+      "name": "Medicine_298",
+      "category": "Supplement",
+      "total_usage": 37
+    }
+  ],
+  "monthly_usage": [
+    {
+      "month": "2024-10",
+      "total_quantity": 97
+    },
+    {
+      "month": "2024-11",
+      "total_quantity": 1002
+    },
+    {
+      "month": "2024-12",
+      "total_quantity": 981
+    },
+    {
+      "month": "2025-01",
+      "total_quantity": 1013
+    },
+    {
+      "month": "2025-02",
+      "total_quantity": 962
+    },
+    {
+      "month": "2025-03",
+      "total_quantity": 769
+    },
+    {
+      "month": "2025-04",
+      "total_quantity": 887
+    },
+    {
+      "month": "2025-05",
+      "total_quantity": 983
+    },
+    {
+      "month": "2025-06",
+      "total_quantity": 832
+    },
+    {
+      "month": "2025-07",
+      "total_quantity": 885
+    },
+    {
+      "month": "2025-08",
+      "total_quantity": 906
+    },
+    {
+      "month": "2025-09",
+      "total_quantity": 957
+    },
+    {
+      "month": "2025-10",
+      "total_quantity": 691
+    }
+  ]
+}

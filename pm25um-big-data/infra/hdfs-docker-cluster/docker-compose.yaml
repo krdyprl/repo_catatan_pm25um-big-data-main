@@ -1,0 +1,85 @@
+version: '3'
+
+services:
+  namenode:
+    image: apache/hadoop:3.3.5
+    container_name: namenode
+    hostname: namenode
+    user: root
+    environment:
+      - HADOOP_HOME=/opt/hadoop
+    volumes:
+      - ./hadoop_namenode:/opt/hadoop/data/nameNode
+      - ./hadoop_tmp:/opt/hadoop/data/tmp
+      - ./hadoop_config:/opt/hadoop/etc/hadoop
+      - ./start-hdfs.sh:/start-hdfs.sh
+      - ../../sandbox/linkedin-data:/sandbox/linkedin-data
+      - ../../app:/opt/hadoop/app
+    ports:
+      - "9870:9870"
+      - "9820:9820"
+    command: [ "/bin/bash", "/start-hdfs.sh" ]
+    networks:
+      - hdfs_network_bridge
+
+  datanode1:
+    image: apache/hadoop:3.3.5
+    container_name: datanode1
+    hostname: datanode1
+    user: root
+    environment:
+      - HADOOP_HOME=/opt/hadoop
+    volumes:
+      - ./hadoop_datanode1:/opt/hadoop/data/dataNode
+      - ./hadoop_config:/opt/hadoop/etc/hadoop
+      - ./init-datanode.sh:/init-datanode.sh
+      - ../../sandbox/linkedin-data:/sandbox/linkedin-data
+    ports:
+      - "9864:9864"  # Web UI for DataNode
+    depends_on:
+      - namenode
+    command: [ "/bin/bash", "/init-datanode.sh" ]
+    networks:
+      - hdfs_network_bridge
+
+  # spark-master:
+  #   image: apache/spark:4.0.1-scala2.13-java17-python3-ubuntu
+  #   container_name: spark-master
+  #   ports:
+  #     - "8080:8080"
+  #     - "7077:7077"
+  #   networks:
+  #     - hdfs_network_bridge
+  #   volumes:
+  #     - ./spark-logs:/opt/spark-logs
+  #     - ../../app:/opt/app
+  # spark-worker:
+  #   image: apache/spark:4.0.1-scala2.13-java17-python3-ubuntu
+  #   container_name: spark-worker
+  #   depends_on:
+  #     - spark-master
+  #   ports:
+  #     - "8081:8081"
+  #   environment:
+  #     - "SPARK_MASTER=spark://spark-master:7077"
+  #   networks:
+  #     - hdfs_network_bridge
+
+  jupyter:
+    image: quay.io/jupyter/pyspark-notebook
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
+    ports:
+      - 8888:8888
+    volumes:
+      - ../../notebooks:/home/jovyan/work
+      - ../../data:/home/jovyan/data
+    networks:
+      - hdfs_network_bridge
+
+volumes:
+  notebooks:
+  data:
+
+networks:
+  hdfs_network_bridge:
+    driver: bridge

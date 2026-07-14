@@ -1,0 +1,11 @@
+metric,value
+Total Medicine Records,"11,741"
+Total Usage Records,"248,218"
+Medicine Details Columns,9
+Medicine Usage Columns,58
+Medicine Details Data Quality (%),100.00%
+Medicine Usage Data Quality (%),32.06%
+Overall Data Quality Score (%),66.03%
+ETL Process Date,2025-10-26 07:26:22
+ETL Process Status,SUCCESS
+Data Lake Layers Created,"3 (Raw, Cleaned, Gold)"

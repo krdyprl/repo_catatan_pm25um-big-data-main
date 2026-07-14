@@ -1,0 +1,3 @@
+dataset,total_records,total_columns,total_cells,missing_values,completeness_pct,memory_usage_mb,quality_grade
+Medicine Details,11741,9,105669,0,100.0,3.97,A
+Medicine Usage,248218,58,14396644,9781789,32.06,45.4,D

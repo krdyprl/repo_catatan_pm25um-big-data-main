@@ -1,0 +1,76 @@
+# ===========================
+# PM25UM Big Data .gitignore
+# ===========================
+
+# ---------------------------
+# Secrets & Environment
+# ---------------------------
+.env
+.env.*
+*.env
+
+# ---------------------------
+# Python
+# ---------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+.venv/
+
+# ---------------------------
+# Jupyter Notebook
+# ---------------------------
+.ipynb_checkpoints/
+
+# ---------------------------
+# Binary / Large Files
+# ---------------------------
+*.parquet
+*.rar
+*.zip
+*.tar.gz
+*.7z
+
+# ---------------------------
+# Docker Volumes
+# ---------------------------
+hadoop_datanode1/
+hadoop_datanode2/
+hadoop_namenode/
+hadoop_tmp/
+data/
+
+# ---------------------------
+# IDE & Editor
+# ---------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------------------------
+# OS
+# ---------------------------
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# ---------------------------
+# Spark / Hadoop
+# ---------------------------
+*.log
+metastore_db/
+derby.log
+spark-warehouse/
+
+# ---------------------------
+# LinkedIn Data (sandbox)
+# ---------------------------
+sandbox/linkedin-data/

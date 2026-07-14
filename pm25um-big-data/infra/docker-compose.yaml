@@ -1,0 +1,37 @@
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongo_data:/data/db
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb # Connects to the 'mongodb' service
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_BASICAUTH_USERNAME: express_user
+      ME_CONFIG_BASICAUTH_PASSWORD: express_password
+    depends_on:
+      - mongodb
+
+  jupyter:
+    image: jupyter/minimal-notebook
+    ports:
+      - 8888:8888
+    volumes:
+      - ../notebooks:/home/jovyan/work
+      - ../data:/home/jovyan/data
+volumes:
+  mongo_data:
+  notebooks:
+  data:

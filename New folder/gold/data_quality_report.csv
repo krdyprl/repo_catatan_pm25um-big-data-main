@@ -1,0 +1,3 @@
+dataset,total_records,total_columns,missing_values,completeness_pct
+Dataset 1,11741,9,0,100.0
+Dataset 2,248218,58,9781789,32.06

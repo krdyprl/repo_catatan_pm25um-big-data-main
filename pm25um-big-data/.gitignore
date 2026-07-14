@@ -1,0 +1,7 @@
+sandbox/linkedin-data/
+.ipynb_checkpoints
+hadoop_datanode1/
+hadoop_datanode2/
+hadoop_namenode/
+hadoop_tmp/
+venv/

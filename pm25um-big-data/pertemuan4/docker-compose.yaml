@@ -1,0 +1,83 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - weather-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_BASICAUTH_USERNAME: express_user
+      ME_CONFIG_BASICAUTH_PASSWORD: express_password
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - weather-network
+
+  jupyter:
+    image: jupyter/minimal-notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./data:/home/jovyan/data
+    networks:
+      - weather-network
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+
+  # ETL Application Service
+  etl-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: etl-app
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    environment:
+      OPENWEATHER_API_KEY: ${OPENWEATHER_API_KEY:-YOUR_API_KEY}
+      CITY: ${CITY:-surabaya}
+      MONGO_USERNAME: admin
+      MONGO_PASSWORD: password
+      MONGO_HOST: mongodb
+      MONGO_PORT: "27017"
+    networks:
+      - weather-network
+    # Run once and exit (remove the below lines if you want it to keep running)
+    restart: no
+    # Uncomment below for continuous running
+    # restart: always
+    # stdin_open: true
+    # tty: true
+
+volumes:
+  mongo_data:
+  notebooks:
+  data:
+
+networks:
+  weather-network:
+    driver: bridge

@@ -1,0 +1,64 @@
+
+# PANDUAN IMPORT KE POWER BI
+=============================
+
+## File yang Tersedia:
+1. medicine_main_table.csv      - Tabel utama (RECOMMENDED untuk dashboard lengkap)
+2. medicine_details.csv         - Master data obat
+3. medicine_usage.csv           - Data penggunaan obat  
+4. category_analytics.csv       - Analisis per kategori obat
+5. monthly_trends.csv           - Trend penggunaan bulanan
+6. top_medicines.csv            - Top 20 obat terpopuler
+7. hospital_analytics.csv       - Analisis per rumah sakit
+
+## Cara Import ke Power BI:
+1. Buka Power BI Desktop
+2. Home → Get Data → Text/CSV
+3. Pilih file medicine_main_table.csv (untuk analisis lengkap)
+4. Preview data, klik Transform Data jika perlu adjustment
+5. Klik Load untuk import data
+
+## Kolom Penting untuk Visualisasi:
+- usage_date: Untuk time series analysis (line charts, trends)
+- category: Untuk breakdown per kategori obat (pie charts, bar charts)
+- total_value: Untuk analisis nilai moneter (cards, sum calculations)
+- quantity_used: Untuk analisis volume penggunaan
+- hospital_id: Untuk analisis per rumah sakit
+- usage_month, usage_year: Untuk grouping temporal
+- prescribed_by: Untuk analisis performa dokter
+
+## Dashboard yang Direkomendasikan:
+1. Overview Dashboard:
+   - Card: Total Medicines, Total Usage, Total Value
+   - Pie Chart: Category Distribution
+   - Line Chart: Monthly Trends
+
+2. Medicine Analysis:
+   - Bar Chart: Top 20 Medicines by Usage
+   - Table: Medicine Details with filters
+   - Scatter Plot: Price vs Usage correlation
+
+3. Hospital Performance:
+   - Map/Bar Chart: Usage by Hospital
+   - Table: Hospital Analytics
+   - Comparison charts between hospitals
+
+4. Time Analysis:
+   - Line Chart: Monthly/Quarterly trends
+   - Heat Map: Usage patterns by month
+   - YoY growth analysis
+
+## Quick Start Tips:
+1. Drag 'category' ke Legend untuk color coding
+2. Drag 'usage_date' ke Axis untuk time series
+3. Drag 'total_value' ke Values untuk sum calculations
+4. Use slicers untuk 'hospital_id', 'category', 'usage_year'
+
+## Data Quality:
+- Total Records: 2,000 usage transactions
+- Date Range: Last 365 days
+- Medicine Catalog: 1,000 unique medicines
+- Hospital Coverage: 20 hospitals
+- Category Coverage: 5 medicine categories
+
+Selamat membuat dashboard yang menarik! 🚀📊

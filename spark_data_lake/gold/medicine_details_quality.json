@@ -1,0 +1,52 @@
+{
+  "dataset_name": "Medicine Details",
+  "total_records": 1000,
+  "total_columns": 8,
+  "memory_usage_mb": 0.18,
+  "missing_stats": {
+    "medicine_id": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "name": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "category": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "manufacturer": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "dosage": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "price": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "expiry_date": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "stock_quantity": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    }
+  },
+  "schema_info": {
+    "medicine_id": "object",
+    "name": "object",
+    "category": "category",
+    "manufacturer": "category",
+    "dosage": "category",
+    "price": "float64",
+    "expiry_date": "datetime64[ns]",
+    "stock_quantity": "Int64"
+  },
+  "quality_score": 100.0,
+  "processing_engine": "Pandas"
+}

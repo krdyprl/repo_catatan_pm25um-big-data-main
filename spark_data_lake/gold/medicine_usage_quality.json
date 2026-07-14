@@ -1,0 +1,47 @@
+{
+  "dataset_name": "Medicine Usage",
+  "total_records": 2000,
+  "total_columns": 7,
+  "memory_usage_mb": 0.28,
+  "missing_stats": {
+    "usage_id": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "medicine_id": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "patient_id": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "usage_date": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "quantity_used": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "prescribed_by": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    },
+    "hospital_id": {
+      "null_count": 0,
+      "missing_percentage": 0.0
+    }
+  },
+  "schema_info": {
+    "usage_id": "object",
+    "medicine_id": "category",
+    "patient_id": "category",
+    "usage_date": "datetime64[ns]",
+    "quantity_used": "Int64",
+    "prescribed_by": "category",
+    "hospital_id": "category"
+  },
+  "quality_score": 100.0,
+  "processing_engine": "Pandas"
+}
